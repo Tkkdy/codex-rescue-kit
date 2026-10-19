@@ -1,0 +1,1 @@
+PASS rescue.cmd default Diagnose, absolute Windows PowerShell, polluted child environment, real exit 3

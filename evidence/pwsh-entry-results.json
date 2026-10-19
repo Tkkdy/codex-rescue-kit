@@ -1,0 +1,7 @@
+{
+  "exit_code_observed": 3,
+  "child_environment_polluted": true,
+  "schema": "rescue-entry-smoke-v1",
+  "status": "PASS",
+  "synthetic_only": true
+}

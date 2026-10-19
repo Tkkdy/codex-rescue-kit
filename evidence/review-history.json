@@ -1,0 +1,22 @@
+{
+  "vm_status": "NOT_TESTED",
+  "baseline": "716f991a31d6a0089a65cfd84ab43e7222b90506",
+  "final_evidence": [
+    "ps51-commands.json",
+    "pwsh-commands.json"
+  ],
+  "schema": "rescue-review-history-v1",
+  "failed_attempt": {
+    "failed": 38,
+    "original_failure_captures": "Retained locally under ignored out directory; not included as passing evidence",
+    "run_id": "f-review-final",
+    "cause": "ProcessStartInfo inherited PS7 module search paths",
+    "passed": 24,
+    "regression_exit": 2,
+    "driver": "Invoke-ReviewChecks.ps1",
+    "label": "ps51",
+    "local_failed_stdout_sha256": "56d140f7dc2e41f1880582f651d650b9e017182cc044093dc991cad2907cd81c"
+  },
+  "provenance": "ORGANIZED_RECORD_NOT_RAW_TRANSCRIPT",
+  "resolution": "Child-only engine Modules path; final2 reran both engines without changing user or machine environment"
+}

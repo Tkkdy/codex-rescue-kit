@@ -1,0 +1,2 @@
+﻿# Keep candidate, committed source and test fingerprints byte-identical.
+* -text

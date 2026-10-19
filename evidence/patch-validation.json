@@ -1,0 +1,102 @@
+{
+  "baseline_commit": "6a39c247cc4f64e9d1cc14bbf33d02ecd3cedd4b",
+  "schema": "rescue-patch-validation-v1",
+  "findings": [
+    {
+      "state": "DEVELOPMENT_CODE_AND_SYNTHETIC_CLOSED",
+      "id": "F-09",
+      "real_api": "NOT_TESTED"
+    },
+    {
+      "id": "F-10",
+      "state": "TEXT_CAPTURE_CLAIM_CORRECTED_AND_ENCODING_CHECKED"
+    }
+  ],
+  "not_tested": [
+    "Real Task Scheduler/HKCU Run/COM modification adapters",
+    "Disposable VM interruption/Undo/permissions matrix",
+    "GUI and B/C external origin",
+    "Real sandbox boundary and restore"
+  ],
+  "reused": [
+    {
+      "counts": "62 PASS / 0 FAIL per engine",
+      "reason": "Independent review verified baseline Git blobs and captures. Only task adapter enable-bit logic changed; affected task tests rerun. Remaining production modules, fixtures and entry scripts unchanged.",
+      "evidence": "ps51-results.json,pwsh-results.json"
+    },
+    {
+      "evidence": "*-entry-results.json,*-window-results.json,skill-results.json",
+      "reason": "Entry, Verify, probe, Skill and window test source unchanged. Prior actual >=60s window and expected product exit 3 remain baseline-only evidence. No current full-suite or origin acceptance claimed."
+    }
+  ],
+  "scope": "TARGETED_F09_F10_BASELINE_REUSED",
+  "changed_source": [
+    {
+      "path": "kit/Private/Adapters.ps1",
+      "sha256": "2844450b8fae2e04de8fcff9f96f12c1afd7191d46be4b90a60e37d119da7ab1",
+      "before_sha256": "e2d4c68bce305b2a80b756517094375bae6311fe7b21ffb7b10b825ab4866098"
+    },
+    {
+      "path": "tests/EncodingChild.ps1",
+      "sha256": "74f09f508275ee889c0dc6693a32d2e7235fa1745ced6a170cdc78061c8acbab",
+      "before_sha256": "NEW_FILE"
+    },
+    {
+      "path": "tests/Run-Tests.ps1",
+      "sha256": "7fa999333355d4f74edf225d2fd163a41b0f2918b38dd8442852bb71045b11cd",
+      "before_sha256": "0b8291aeb971e54834e9a703393b9f2eebef34c7dc5854924314c4b7eff56d90"
+    },
+    {
+      "path": "tests/Task-State-Cases.ps1",
+      "sha256": "b5e962c93b4f5b220ca0b77196c23e667cb55e47e8394f0ea3c6476ec496ae83",
+      "before_sha256": "NEW_FILE"
+    },
+    {
+      "path": "tools/Build-Candidate.ps1",
+      "sha256": "2879c539e17b5f014a867ccecb0ce17b3166003220cda3770d88c1e796509d46",
+      "before_sha256": "b3c03b46753b33c840535166ad319a47ef5ae8e56adfea0ae13e737b60ea9030"
+    },
+    {
+      "path": "tools/Invoke-ReviewChecks.ps1",
+      "sha256": "e346108c250fccd1e2c152d81fb24d462e99e3fbd19e2961115ed5755819823f",
+      "before_sha256": "71cf4c3bbb2486357316c12b8cd992e45a909fce161894e3b4f9cb776c2b277b"
+    },
+    {
+      "path": "tools/Test-CandidateEvidence.ps1",
+      "sha256": "1cd875644da5002818023afe13dcb7fe6e2da17330fd4d4e5aa1fb368f8b014a",
+      "before_sha256": "NEW_FILE"
+    }
+  ],
+  "public_release": false,
+  "provenance": "ORGANIZED_DEVELOPER_RECORD_WITH_REFERENCES_TO_RUNTIME_TEXT_CAPTURES",
+  "targeted": {
+    "tests_per_engine": 8,
+    "engines": [
+      "5.1.26100.9711",
+      "7.6.5"
+    ],
+    "records_per_engine": [
+      "regression",
+      "encoding",
+      "static"
+    ],
+    "case_filter": "task*",
+    "source_manifest": "current-source-manifest.json"
+  },
+  "metadata_correction": {
+    "files": [
+      "ps51-commands.json",
+      "pwsh-commands.json"
+    ],
+    "log_bytes": "UNCHANGED_FROM_BASELINE",
+    "raw_byte_claim": "RETRACTED",
+    "changed_fields": [
+      "capture",
+      "provenance",
+      "metadata_correction",
+      "saved_encoding",
+      "decoder_at_execution"
+    ],
+    "historical_decoder": "UNKNOWN"
+  }
+}

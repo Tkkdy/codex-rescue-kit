@@ -1,0 +1,11 @@
+{
+  "manual_origin_and_gui": "NOT_TESTED",
+  "overall_verification_exit": 3,
+  "requested_seconds": 60,
+  "host_canary": "PASS",
+  "elapsed_seconds": 62.5,
+  "native_probe_count": 3,
+  "schema": "rescue-window-smoke-v1",
+  "status": "PASS",
+  "synthetic_only": true
+}

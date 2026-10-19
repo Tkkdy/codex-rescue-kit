@@ -1,0 +1,9 @@
+{
+  "invalid_utf8_replaced": true,
+  "saved_text_hash_differs_from_known_pipe_fixture": true,
+  "status": "PASS",
+  "synthetic_only": true,
+  "schema": "rescue-text-encoding-check-v1",
+  "non_ascii_stdout_stderr_preserved": true,
+  "capture": "RUNTIME_CAPTURED_TEXT_REENCODED_UTF8_SAVED_WITHOUT_MANUAL_EDIT"
+}

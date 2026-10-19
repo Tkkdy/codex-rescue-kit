@@ -1,0 +1,101 @@
+{
+  "schema": "rescue-preview-validation-v1",
+  "state": "PUBLIC_PREVIEW_CANDIDATE",
+  "public_release": false,
+  "prepared_utc": "2026-10-19T07:03:11.434000+00:00",
+  "source_baseline": "e7ce4f5bf7ce75a2039b7036cc5c1a9356ad24af",
+  "tested_source_manifest": "tested-source.json",
+  "engines": {
+    "ps51": {
+      "version": "5.1.26100.9711",
+      "regression_passed": 73,
+      "regression_failed": 0,
+      "static_exit": 0,
+      "synthetic_entry_exit": 0
+    },
+    "pwsh": {
+      "version": "7.6.5",
+      "regression_passed": 73,
+      "regression_failed": 0,
+      "static_exit": 0,
+      "synthetic_entry_exit": 0
+    }
+  },
+  "real_entry_gate_records": [
+    {
+      "engine": "ps51",
+      "command": "powershell.exe -NoProfile -File kit/Rescue.ps1 -Mode Quarantine",
+      "working_directory": "<PREVIEW_ROOT>",
+      "exit_code": 3,
+      "stdout_sha256": "fdec7c369dbee3323a0bf7416341f12180eef1e645fb832c203acba6d1146d73",
+      "stderr_bytes": 0,
+      "provenance": "Portable command text reconstructed from the executed driver and retained raw pipe files; no fabricated execution timestamps"
+    },
+    {
+      "engine": "ps51",
+      "command": "powershell.exe -NoProfile -File kit/Rescue.ps1 -Mode Undo",
+      "working_directory": "<PREVIEW_ROOT>",
+      "exit_code": 3,
+      "stdout_sha256": "fdec7c369dbee3323a0bf7416341f12180eef1e645fb832c203acba6d1146d73",
+      "stderr_bytes": 0,
+      "provenance": "Portable command text reconstructed from the executed driver and retained raw pipe files; no fabricated execution timestamps"
+    },
+    {
+      "engine": "pwsh",
+      "command": "pwsh.exe -NoProfile -File kit/Rescue.ps1 -Mode Quarantine",
+      "working_directory": "<PREVIEW_ROOT>",
+      "exit_code": 3,
+      "stdout_sha256": "fdec7c369dbee3323a0bf7416341f12180eef1e645fb832c203acba6d1146d73",
+      "stderr_bytes": 0,
+      "provenance": "Portable command text reconstructed from the executed driver and retained raw pipe files; no fabricated execution timestamps"
+    },
+    {
+      "engine": "pwsh",
+      "command": "pwsh.exe -NoProfile -File kit/Rescue.ps1 -Mode Undo",
+      "working_directory": "<PREVIEW_ROOT>",
+      "exit_code": 3,
+      "stdout_sha256": "fdec7c369dbee3323a0bf7416341f12180eef1e645fb832c203acba6d1146d73",
+      "stderr_bytes": 0,
+      "provenance": "Portable command text reconstructed from the executed driver and retained raw pipe files; no fabricated execution timestamps"
+    }
+  ],
+  "gate_capture": "Raw Python subprocess PIPE bytes copied unchanged. Historical top-level evidence logs retain their decoded/reencoded provenance.",
+  "non_elevated": true,
+  "before_after": {
+    "task_definitions": "UNCHANGED_198",
+    "hkcu_registry64_run": "UNCHANGED_9",
+    "startup": "UNCHANGED_METADATA_3",
+    "codex_auth_config_agents": "UNCHANGED_METADATA_ONLY",
+    "skills": "UNCHANGED_METADATA_1067",
+    "rules": "ABSENT_BEFORE_AND_AFTER",
+    "full_codex_data_tree": "NOT_TESTED_FULL_TREE_ACTIVE_HOST"
+  },
+  "initial_failed_run": {
+    "engine": "ps51",
+    "passed": 26,
+    "failed": 47,
+    "process_exit": 2,
+    "cause": "Inherited PS7 module discovery paths; Get-FileHash unavailable in 46 direct failures and stability assertion affected by failed hashing",
+    "resolution": "Existing engine-specific Modules directory applied only to test child processes; no persistent environment/configuration edits; original failure results/logs retained privately",
+    "public_result_scope": "Corrected engine-isolated run; PS7 passing suite reused without repeating"
+  },
+  "skill_validator": {
+    "status": "PASS",
+    "exit": 0,
+    "output": "Skill is valid!",
+    "scope": "Repository copy only; no installed Skills modified"
+  },
+  "not_tested": [
+    "Real Task Scheduler/HKCU Run/Startup COM mutation",
+    "Real Journal/Undo fault injection",
+    "Desktop GUI A and external B/C origins or sandbox boundaries",
+    "Full active Codex data tree immutability",
+    "Cross-machine compatibility and full VM matrix"
+  ],
+  "release_blockers": [
+    "Copyright holder and MIT authorization unconfirmed",
+    "Maintainer and security contact unconfirmed",
+    "GitHub owner/repository target unconfirmed"
+  ],
+  "evidence_boundary": "Host entry refusal and synthetic tests only; not live adapter, recovery, GUI or tool-origin acceptance"
+}

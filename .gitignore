@@ -1,0 +1,4 @@
+﻿/out/
+/artifacts/
+/.test-runs/
+*.tmp

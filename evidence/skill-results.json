@@ -1,0 +1,8 @@
+{
+  "active_installation_modified": false,
+  "skill": "codex-rescue",
+  "schema": "rescue-skill-validation-v1",
+  "provenance": "Actual local validator output: Skill is valid!; exit 0",
+  "status": "PASS",
+  "validator": "Existing host skill-creator quick_validate.py"
+}

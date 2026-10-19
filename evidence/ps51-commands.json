@@ -1,0 +1,154 @@
+{
+  "records": [
+    {
+      "stdout_sha256": "bf6e2612181c00e3d1dccde1e3688f9c004b2f9c59cd3d5a72b0ed9ef7d1ae12",
+      "started_at": "2026-10-17T19:06:25.2615069Z",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit_code": 0,
+      "capture": "RUNTIME_CAPTURED_TEXT_REENCODED_UTF8_SAVED_WITHOUT_MANUAL_EDIT",
+      "arguments": "-NoLogo -NoProfile -NonInteractive -File \"tests/Run-Tests.ps1\" -ResultDirectory \"out/f-review-final2-ps51/cases\"",
+      "executable": "powershell.exe",
+      "elapsed_seconds": 124.38,
+      "working_directory": "<REPOSITORY_ROOT>",
+      "child_environment": {
+        "PSModulePath": "<ENGINE_HOME>/Modules",
+        "scope": "CHILD_PROCESS_ONLY"
+      },
+      "executable_sha256": "60c9b29843624dd8af6b6a7b26147753be6aeef65098b9a503cc50850afe410f",
+      "ended_at": "2026-10-17T19:08:29.6685044Z",
+      "name": "regression",
+      "saved_encoding": "UTF-8_NO_BOM",
+      "decoder_at_execution": "UNKNOWN_NOT_RECORDED_STREAMREADER_DEFAULT"
+    },
+    {
+      "stdout_sha256": "4b5b16063a690a175cbf984ccfc80e71d8d4642cd7709e7bc6dd5f041784dd9b",
+      "started_at": "2026-10-17T19:08:29.7039581Z",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit_code": 0,
+      "capture": "RUNTIME_CAPTURED_TEXT_REENCODED_UTF8_SAVED_WITHOUT_MANUAL_EDIT",
+      "arguments": "-NoLogo -NoProfile -NonInteractive -File \"tests/Smoke-Entry.ps1\" -ResultDirectory \"out/f-review-final2-ps51/entry\"",
+      "executable": "powershell.exe",
+      "elapsed_seconds": 6.01,
+      "working_directory": "<REPOSITORY_ROOT>",
+      "child_environment": {
+        "PSModulePath": "<ENGINE_HOME>/Modules",
+        "scope": "CHILD_PROCESS_ONLY"
+      },
+      "executable_sha256": "60c9b29843624dd8af6b6a7b26147753be6aeef65098b9a503cc50850afe410f",
+      "ended_at": "2026-10-17T19:08:35.7347352Z",
+      "name": "entry",
+      "saved_encoding": "UTF-8_NO_BOM",
+      "decoder_at_execution": "UNKNOWN_NOT_RECORDED_STREAMREADER_DEFAULT"
+    },
+    {
+      "stdout_sha256": "3f5736d8189ed3a280be61668461eda2224b85bd827a21d25e05624263547699",
+      "started_at": "2026-10-17T19:08:35.7419105Z",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit_code": 0,
+      "capture": "RUNTIME_CAPTURED_TEXT_REENCODED_UTF8_SAVED_WITHOUT_MANUAL_EDIT",
+      "arguments": "-NoLogo -NoProfile -NonInteractive -File \"tests/Window-Smoke.ps1\" -ResultDirectory \"out/f-review-final2-ps51/window\"",
+      "executable": "powershell.exe",
+      "elapsed_seconds": 74.99,
+      "working_directory": "<REPOSITORY_ROOT>",
+      "child_environment": {
+        "PSModulePath": "<ENGINE_HOME>/Modules",
+        "scope": "CHILD_PROCESS_ONLY"
+      },
+      "executable_sha256": "60c9b29843624dd8af6b6a7b26147753be6aeef65098b9a503cc50850afe410f",
+      "ended_at": "2026-10-17T19:09:50.7441937Z",
+      "name": "window",
+      "saved_encoding": "UTF-8_NO_BOM",
+      "decoder_at_execution": "UNKNOWN_NOT_RECORDED_STREAMREADER_DEFAULT"
+    },
+    {
+      "stdout_sha256": "509969c329bd3f0f5978779994183be69bbcb65f1ce82f2785c08d448e3f5aee",
+      "started_at": "2026-10-17T19:09:50.7501532Z",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit_code": 0,
+      "capture": "RUNTIME_CAPTURED_TEXT_REENCODED_UTF8_SAVED_WITHOUT_MANUAL_EDIT",
+      "arguments": "-NoLogo -NoProfile -NonInteractive -File \"tools/Test-Source.ps1\" ",
+      "executable": "powershell.exe",
+      "elapsed_seconds": 6.66,
+      "working_directory": "<REPOSITORY_ROOT>",
+      "child_environment": {
+        "PSModulePath": "<ENGINE_HOME>/Modules",
+        "scope": "CHILD_PROCESS_ONLY"
+      },
+      "executable_sha256": "60c9b29843624dd8af6b6a7b26147753be6aeef65098b9a503cc50850afe410f",
+      "ended_at": "2026-10-17T19:09:57.4214745Z",
+      "name": "static",
+      "saved_encoding": "UTF-8_NO_BOM",
+      "decoder_at_execution": "UNKNOWN_NOT_RECORDED_STREAMREADER_DEFAULT"
+    }
+  ],
+  "schema": "rescue-command-capture-v1",
+  "provenance": "F-10 metadata correction only: runtime StreamReader-decoded stdout/stderr text re-encoded to UTF-8, saved without manual edits; not raw pipe bytes. Original arguments, times, exits, tested_source, log bytes and hashes preserved. Historical decoder was not recorded; do not infer the new explicit UTF-8 policy.",
+  "synthetic_only": true,
+  "tested_source": [
+    {
+      "path": "kit/Modules/Diagnose.ps1",
+      "sha256": "e443b62ea7b73d688e882b5c4d9209674d7791cc387e5dd9bf334955cb6a7ba1"
+    },
+    {
+      "path": "kit/Modules/Quarantine.ps1",
+      "sha256": "99a774429ccefff4325b46711065a343f683c2d577426d7b1c44af0d518498a7"
+    },
+    {
+      "path": "kit/Modules/Verify.ps1",
+      "sha256": "4da23e0ca12d37a5153de0659e5a8bdad32ae2433e75df16a3c0805a2cce49a0"
+    },
+    {
+      "path": "kit/Private/Adapters.ps1",
+      "sha256": "e2d4c68bce305b2a80b756517094375bae6311fe7b21ffb7b10b825ab4866098"
+    },
+    {
+      "path": "kit/Private/Common.ps1",
+      "sha256": "73db7062d7f7e37f5799424841697e87671cf3c8a07d069fb2d5eff801a509c1"
+    },
+    {
+      "path": "kit/ProbeChild.ps1",
+      "sha256": "5a6df7d4f3b0d79fde3f6afb98e95c4282eec976f9442df7e6c2d250725daffe"
+    },
+    {
+      "path": "kit/Rescue.Core.psm1",
+      "sha256": "1eda1c14e700630c758ea95fc0b41e69b410ceb88f8856b87bef6da1b4139dc2"
+    },
+    {
+      "path": "kit/Rescue.ps1",
+      "sha256": "08854fc3f347a5df614809f2c9510f2123e63fdda35549de7dc6b56440626937"
+    },
+    {
+      "path": "rescue.cmd",
+      "sha256": "28680caf08f8b7e34fd46cf153063260c1a7fff148f33e6235af7ab8baba26b9"
+    },
+    {
+      "path": "tests/Review-Cases.ps1",
+      "sha256": "111b8ac9872945337936f2d3d0401fec47eedcb2e106412233f981328ec7d1d3"
+    },
+    {
+      "path": "tests/Run-Tests.ps1",
+      "sha256": "0b8291aeb971e54834e9a703393b9f2eebef34c7dc5854924314c4b7eff56d90"
+    },
+    {
+      "path": "tests/Smoke-Entry.ps1",
+      "sha256": "a951ed90d9e78d9f5f0943217963aa40ad2f6f822a44899ee2e002bee2695b71"
+    },
+    {
+      "path": "tests/Window-Smoke.ps1",
+      "sha256": "3bbeab0cec6dcbbb15841d9e1cd8b00657b6f1456e297708e1b1b1343d619743"
+    },
+    {
+      "path": "tools/Build-Candidate.ps1",
+      "sha256": "b3c03b46753b33c840535166ad319a47ef5ae8e56adfea0ae13e737b60ea9030"
+    },
+    {
+      "path": "tools/Invoke-ReviewChecks.ps1",
+      "sha256": "71cf4c3bbb2486357316c12b8cd992e45a909fce161894e3b4f9cb776c2b277b"
+    },
+    {
+      "path": "tools/Test-Source.ps1",
+      "sha256": "079db7232eefade81b9eaaae4b5e707e45dc56a847df5979c64b7152697273d6"
+    }
+  ],
+  "metadata_correction": "F-10; logs and execution fields unchanged; original metadata remains in baseline candidate"
+}

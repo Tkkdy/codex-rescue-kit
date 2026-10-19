@@ -1,0 +1,63 @@
+PASS normal diagnose preserves assets and marks missing functional evidence
+PASS legitimate third party provider is not takeover
+PASS privacy auth file is never parsed or exported
+PASS report injection remains data
+PASS dual CLI versions stay separate observations
+PASS explicit home cannot escape fixture
+PASS output cannot overlap protected home
+PASS traversal and UNC are rejected
+PASS sandbox ACL synthetic error never triggers permission mutation
+PASS Mxc configuration does not require legacy sandbox-bin
+PASS writer matching rejects incidental keywords and extra arguments
+PASS dry run has zero state changes
+PASS explicit plan hash approval required
+PASS quarantine and undo restore actual synthetic startup file and protect assets
+PASS same named unrelated object is untouched
+PASS running writer blocks changes and never terminates process
+PASS writer content drift blocks apply
+PASS object definition drift blocks apply
+PASS tampered plan cannot reuse original approval
+PASS interrupted transaction has durable undo and recovers
+PASS journal records pending before action
+PASS repeat apply is rejected and repeat undo is idempotent
+PASS undo conflict never overwrites new startup file
+PASS journal corruption and undo snapshot corruption are rejected
+PASS missing held copy cannot report successful rollback
+PASS statistics-only backup cannot pass content verification
+PASS same size corrupted backup is detected by hash
+PASS backup manifest path traversal is rejected
+PASS Verify no evidence never passes and has manual GUI checklist
+PASS actual native exits and random canary read cleanup
+PASS tool exit failure timeout and missing evidence never pass
+PASS random challenge mismatch cannot pass
+PASS self declared B evidence cannot attest GUI or B origin
+PASS expected denial cannot pass when write succeeds
+PASS session tampering cannot redirect canary to user assets
+PASS PATHEXT pollution leaves environment unchanged after probes
+PASS stability window detects actual bounded periodic rewrite
+PASS Chinese spaces and long paths stay scoped
+PASS interruption after mutation before APPLIED is recoverable
+PASS actual native nonzero exit and timeout are failures
+PASS B executor may differ but target home may not drift
+PASS backup excludes no unlisted files including WAL sidecar
+PASS journal undo preview cannot mutate
+PASS task fingerprint retains trigger drift but ignores own enabled flag
+PASS reparse path and payload enumeration are refused before traversal
+PASS drive relative and Windows device alias paths are refused
+PASS Diagnose never relabels B collection as host C
+PASS UTC conversion preserves string and parsed JSON timestamps
+PASS F06 exact refusal helper rejects unrelated exceptions
+PASS F01 fixed writable Run factory and mock mutation preserve type and conflicts
+PASS F02 writer content drift refuses all Undo items without changes
+PASS F02 missing writer refuses Undo and preserves held and Journal
+PASS F02 writer parent reparse refuses Undo without traversing to execute
+PASS F03 actual exclusive config lock preserves Diagnose and Verify reports
+PASS F03 transient sampling exception never becomes stable PASS
+PASS F04 explicit and default absent home never PASS selection
+PASS F04 existing home requires runtime correlation even with explicit path
+PASS F05 valid manifest over 2MB is accepted within independent bounds
+PASS F05 unreadable payload is BLOCKED while actual mismatch is FAIL
+PASS F05 unsupported manifest size is BLOCKED before parsing
+PASS F07 unnamed or unsupported Run names never enter a plan
+PASS F08 same-process B and C declarations never attest either origin or GUI
+RESULT 62 passed, 0 failed

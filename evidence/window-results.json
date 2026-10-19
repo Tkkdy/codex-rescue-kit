@@ -1,0 +1,11 @@
+{
+  "synthetic_only": true,
+  "elapsed_seconds": 65.11,
+  "schema": "rescue-window-smoke-v1",
+  "status": "PASS",
+  "manual_origin_and_gui": "NOT_TESTED",
+  "host_canary": "PASS",
+  "requested_seconds": 60,
+  "overall_verification_exit": 3,
+  "native_probe_count": 3
+}

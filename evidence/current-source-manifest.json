@@ -1,0 +1,83 @@
+{
+  "scope": "TARGETED_F09_F10_BASELINE_REUSED",
+  "schema": "rescue-current-source-v1",
+  "files": [
+    {
+      "path": "kit/Modules/Diagnose.ps1",
+      "sha256": "e443b62ea7b73d688e882b5c4d9209674d7791cc387e5dd9bf334955cb6a7ba1"
+    },
+    {
+      "path": "kit/Modules/Quarantine.ps1",
+      "sha256": "99a774429ccefff4325b46711065a343f683c2d577426d7b1c44af0d518498a7"
+    },
+    {
+      "path": "kit/Modules/Verify.ps1",
+      "sha256": "4da23e0ca12d37a5153de0659e5a8bdad32ae2433e75df16a3c0805a2cce49a0"
+    },
+    {
+      "path": "kit/Private/Adapters.ps1",
+      "sha256": "2844450b8fae2e04de8fcff9f96f12c1afd7191d46be4b90a60e37d119da7ab1"
+    },
+    {
+      "path": "kit/Private/Common.ps1",
+      "sha256": "73db7062d7f7e37f5799424841697e87671cf3c8a07d069fb2d5eff801a509c1"
+    },
+    {
+      "path": "kit/ProbeChild.ps1",
+      "sha256": "5a6df7d4f3b0d79fde3f6afb98e95c4282eec976f9442df7e6c2d250725daffe"
+    },
+    {
+      "path": "kit/Rescue.Core.psm1",
+      "sha256": "1eda1c14e700630c758ea95fc0b41e69b410ceb88f8856b87bef6da1b4139dc2"
+    },
+    {
+      "path": "kit/Rescue.ps1",
+      "sha256": "08854fc3f347a5df614809f2c9510f2123e63fdda35549de7dc6b56440626937"
+    },
+    {
+      "path": "rescue.cmd",
+      "sha256": "28680caf08f8b7e34fd46cf153063260c1a7fff148f33e6235af7ab8baba26b9"
+    },
+    {
+      "path": "tests/EncodingChild.ps1",
+      "sha256": "74f09f508275ee889c0dc6693a32d2e7235fa1745ced6a170cdc78061c8acbab"
+    },
+    {
+      "path": "tests/Review-Cases.ps1",
+      "sha256": "111b8ac9872945337936f2d3d0401fec47eedcb2e106412233f981328ec7d1d3"
+    },
+    {
+      "path": "tests/Run-Tests.ps1",
+      "sha256": "7fa999333355d4f74edf225d2fd163a41b0f2918b38dd8442852bb71045b11cd"
+    },
+    {
+      "path": "tests/Smoke-Entry.ps1",
+      "sha256": "a951ed90d9e78d9f5f0943217963aa40ad2f6f822a44899ee2e002bee2695b71"
+    },
+    {
+      "path": "tests/Task-State-Cases.ps1",
+      "sha256": "b5e962c93b4f5b220ca0b77196c23e667cb55e47e8394f0ea3c6476ec496ae83"
+    },
+    {
+      "path": "tests/Window-Smoke.ps1",
+      "sha256": "3bbeab0cec6dcbbb15841d9e1cd8b00657b6f1456e297708e1b1b1343d619743"
+    },
+    {
+      "path": "tools/Build-Candidate.ps1",
+      "sha256": "2879c539e17b5f014a867ccecb0ce17b3166003220cda3770d88c1e796509d46"
+    },
+    {
+      "path": "tools/Invoke-ReviewChecks.ps1",
+      "sha256": "e346108c250fccd1e2c152d81fb24d462e99e3fbd19e2961115ed5755819823f"
+    },
+    {
+      "path": "tools/Test-CandidateEvidence.ps1",
+      "sha256": "1cd875644da5002818023afe13dcb7fe6e2da17330fd4d4e5aa1fb368f8b014a"
+    },
+    {
+      "path": "tools/Test-Source.ps1",
+      "sha256": "079db7232eefade81b9eaaae4b5e707e45dc56a847df5979c64b7152697273d6"
+    }
+  ],
+  "note": "Current bytes associated with patch captures, not a claim of full regression on this commit"
+}

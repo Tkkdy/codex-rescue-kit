@@ -1,0 +1,7 @@
+{
+    "schema":  "rescue-static-v1",
+    "status":  "PASS",
+    "files":  89,
+    "powershell_files_parsed":  18,
+    "scope":  "Parser and bounded sensitive-pattern/forbidden-operation checks; not a security audit"
+}
