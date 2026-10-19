@@ -1,0 +1,49 @@
+{
+  "schema": "preview-publication-readiness-v1",
+  "recorded_utc": "2026-10-19T07:22:40.251744+00:00",
+  "state": "PUBLIC_PREVIEW_CANDIDATE",
+  "copyright": "Copyright (c) 2026 Tkkdy",
+  "license": "MIT",
+  "authorization_scope": "Original implementation the rights holder is entitled to license; excludes customer scripts, private configuration/backups/credentials and restricted third-party code",
+  "authorization_source": "Explicit human user confirmation in current chat",
+  "maintainer": "Tkkdy",
+  "ordinary_contact": "https://github.com/Tkkdy/codex-rescue-kit/issues",
+  "security_contact": "https://github.com/Tkkdy/codex-rescue-kit/security/advisories/new",
+  "personal_email_published": false,
+  "target": "Tkkdy/codex-rescue-kit",
+  "required_visibility": "Public",
+  "version": "v0.1.0-preview.1",
+  "prerelease": true,
+  "experimental": true,
+  "target_probe": {
+    "authenticated_connector_login": "Tkkdy",
+    "repository_http_status": 200,
+    "repository_id": 1425249603,
+    "visibility": "public",
+    "size": 0,
+    "connector_admin": true,
+    "private_vulnerability_reporting_enabled": true,
+    "private_vulnerability_reporting_probe": "Anonymous GitHub REST GET returned 200 with enabled=true after owner enablement",
+    "github_cli": "OFFICIAL_DEVICE_LOGIN_STARTED_HUMAN_CONFIRMATION_PENDING",
+    "browser_admin_session": "UNAVAILABLE",
+    "connector_release_creation": "NO_EXPOSED_ACTION",
+    "connector_pvr_enablement": "NO_EXPOSED_ACTION"
+  },
+  "source_review": {
+    "basis": "Verified baseline and external preview ZIP/patch plus original in-session tests/docs; owner authorization; bounded committed-file inspection",
+    "vendored_code_or_binaries_found": false,
+    "third_party_redistribution_dependencies_found": false,
+    "ambiguous_rights_files_identified": [],
+    "limitation": "Not proof of unseen upstream provenance"
+  },
+  "runtime_changed": false,
+  "test_evidence_reused": "preview1/summary.json and tested-source.json; test-session release blockers are historical, superseded only by this record",
+  "remaining_release_gates": [
+    "Release-capable authenticated session: official gh device login awaiting human confirmation",
+    "Final committed-tree/history and package hash checks"
+  ],
+  "repository_created": false,
+  "pushed": false,
+  "released": false,
+  "snapshot_scope": "Prepublication preparation snapshot; final publication result must be checked against the actual GitHub release, not inferred from this record"
+}

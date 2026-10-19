@@ -10,4 +10,6 @@ Known gaps: no real Task Scheduler/HKCU Run/COM modification trials; no real des
 
 Security: check license/rights, maintainer contact, and metadata before public publishing. Never upload the original incident/handoff ZIP, Git bundle or user data. No claim of universal compatibility, endorsement, or safety certification.
 
-Publication state: PUBLIC_PREVIEW_CANDIDATE, not published. Copyright/MIT authorization, maintainer/security contact and GitHub repository target remain unconfirmed. See docs/PREVIEW-VALIDATION.md.
+Preparation state: PUBLIC_PREVIEW_CANDIDATE (prepublication snapshot). Copyright (c) 2026 Tkkdy; MIT is limited to original implementation the rights holder can authorize. Maintainer Tkkdy; Issues for ordinary questions, Private Vulnerability Reporting for security, no personal email. Target: Tkkdy/codex-rescue-kit. The Public repository and enabled Private Vulnerability Reporting have been verified; the actual GitHub Pre-release determines final publication status. See docs/PREVIEW-VALIDATION.md.
+
+Release designation: **Pre-release / Experimental**. Default recommendation: Diagnose. No live quarantine/recovery certification or official OpenAI endorsement.

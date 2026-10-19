@@ -24,4 +24,4 @@ Plan、undo、Journal 含实际对象定位和可能敏感的自启原值，只�
 
 默认报告是字段白名单，但不是形式化隐私保证。哈希可关联同一目标，ACL/安装版本仍是设备元数据；用户应先检查再分享。tests 中假的 secret/synthetic 字符串是专门的隐私断言，不代表采集过真实密钥。
 
-安全问题应先私下通知项目维护者；当前尚未配置公开联系地址，不在包中虚构邮箱或漏洞响应承诺。独立审查先关注 Adapters.ps1、Quarantine.ps1、Common.ps1 和 Verify.ps1，随后检查 Skill 是否会诱导扩大授权。
+维护者为 [Tkkdy](https://github.com/Tkkdy)。安全漏洞通过 [GitHub Private Vulnerability Reporting](https://github.com/Tkkdy/codex-rescue-kit/security/advisories/new) 私下报告；普通问题用 GitHub Issues，不公开个人邮箱。发布前必须确认私密漏洞报告已启用；当前是否可用以实际仓库门禁记录为准。参见根目录 [SECURITY.md](../SECURITY.md)。不承诺固定漏洞响应时限。独立审查先关注 Adapters.ps1、Quarantine.ps1、Common.ps1 和 Verify.ps1，随后检查 Skill 是否会诱导扩大授权。

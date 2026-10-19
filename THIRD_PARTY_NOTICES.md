@@ -1,6 +1,6 @@
-﻿# 第三方运行时与许可
+# 第三方运行时与许可
 
-项目原创代码与文档采用 MIT。标准许可证文本核对来源：[Open Source Initiative MIT](https://opensource.org/license/mit)。允许商业使用，仍须保留版权与许可声明；公开发布前由维护者确认 contributors 署名及权利归属。
+项目原创代码与文档采用 MIT。标准许可证文本核对来源：[Open Source Initiative MIT](https://opensource.org/license/mit)。允许商业使用，仍须保留版权与许可声明；版权署名为 Copyright (c) 2026 Tkkdy。权利人已确认 MIT 授权仅覆盖其有权授权的项目原创实现；客户原始脚本、私人配置、备份、凭据及第三方受限代码不在授权范围，也不进入发布包。
 
 没有 vendored 第三方代码、npm/Python/NuGet 模块、二进制或字体；也没有直接/传递包安装依赖。Pester、PyYAML、Git、Python、PowerShell 和 Windows 均不打入源码候选 ZIP。
 
@@ -17,3 +17,9 @@
 - [官方 Windows sandbox](https://learn.chatgpt.com/docs/windows/windows-sandbox)
 
 没有引入历史 01–08 脚本、WorkBuddy 报告原文、Stage2/FinalPass、用户备份、第三方产品实现或凭据。历史事件只作为安全需求背景；本候选不把未复核的单机因果归属当成产品事实。未来引入任何新依赖/原始材料时，必须重新核查许可证及数据权利。
+
+## 本次来源核验边界
+
+当前源码来自已校验的 e7ce4f5 候选、已验证与基线可应用且字节一致的外部 Preview 补丁，以及本任务中新增的原创门禁测试/发布说明。基线与补丁的哈希、差异和来源关联已复核；当前清单没有 vendored 目录、第三方源码声明、依赖清单、下载器或随包分发的二进制/字体。标准运行时 API 调用和官方文档链接不等于再分发其实现。原始事故材料与私密宿主指纹不在候选内。
+
+没有发现需要额外第三方再分发许可或应单独阻塞的来源不明文件。这是基于收到的材料、代码检查与权利人明确授权的核验，不是对不可见历史来源的证明；今后出现不明确来源时，应阻塞该文件并复核，而不是默认属于 Tkkdy。

@@ -46,6 +46,8 @@ PowerShell 的执行策略若阻止运行，请遵守本机策略，不建议绕
 
 ## 开源许可与责任
 
-本仓库保留原始候选采用的 [MIT 许可证](LICENSE) 和 [第三方说明](THIRD_PARTY_NOTICES.md)，允许商业使用。公开前应由权利人确认可授权的原创内容、Copyright 署名与安全联系渠道；不能把客户事故文件当作授权材料。
+本项目原创实现采用 [MIT 许可证](LICENSE)，Copyright (c) 2026 Tkkdy；授权仅覆盖权利人有权授权的原创内容。见 [来源与第三方说明](THIRD_PARTY_NOTICES.md)。客户原始脚本、私人配置、备份、凭据和第三方受限代码不进入公开包。
+
+维护者：[Tkkdy](https://github.com/Tkkdy)。普通问题使用 [GitHub Issues](https://github.com/Tkkdy/codex-rescue-kit/issues)，安全漏洞使用 [私密漏洞报告](https://github.com/Tkkdy/codex-rescue-kit/security/advisories/new)，不公开个人邮箱。详见 [SECURITY.md](SECURITY.md)。公开发布前必须确认该私密报告功能已启用。
 
 本包不包含历史救援日志、客户备份、认证材料、真实私人配置或原始 Git bundle。没有联网遥测或自动更新器。使用前阅读安全说明；报告只经过字段白名单过滤，**并不保证绝对没有敏感信息**。
