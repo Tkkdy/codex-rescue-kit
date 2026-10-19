@@ -1,0 +1,205 @@
+{
+  "schema": "rescue-v02-evidence-bindings-v1",
+  "created_at": "2026-10-19T15:37:00.565228+00:00",
+  "scope": "Reviewed b09 functionality with Beta risk-disclosure-only delta; inherited composed evidence plus fresh Beta checks",
+  "files": [
+    {
+      "path": "evidence/v02/gpt-patch-execution-index.json",
+      "sha256": "def150e2d6a484f2b948bf2d4e590ce59a5d41519c74357097d19f08e13fbe7e"
+    },
+    {
+      "path": "evidence/v02/ps51-entry-results.json",
+      "sha256": "8e007ce3ac89faf7c8c0aed7b45158b818165e211c71d0d241595ef808bde60d"
+    },
+    {
+      "path": "evidence/v02/ps51-gpt-flow-composed-results.json",
+      "sha256": "ca63911858268a8e431506a0754cd32b5d9d5b5e5fe6e5f812a46c4c66303d7a"
+    },
+    {
+      "path": "evidence/v02/ps51-gpt-patch-results.json",
+      "sha256": "bb17ccc1261f4eaad1b28748eaa294d8e33d5e7e4c1919d47ee5a7544ea04079"
+    },
+    {
+      "path": "evidence/v02/ps51-legacy-reused.json",
+      "sha256": "e9042f564c600877f923606cf13b650c64380ce6f2d1369df75ab886b485cf9a"
+    },
+    {
+      "path": "evidence/v02/ps51-review-patch-results.json",
+      "sha256": "b599cf3702741a12b7c809db9fb2a14fd33ccd2364f688033fb4af3bb927dae7"
+    },
+    {
+      "path": "evidence/v02/ps51-revival-loop.json",
+      "sha256": "833eb7d2948464b00b4257cb80fa08e0b254fa433b9aedde7751d9939fcbe9a8"
+    },
+    {
+      "path": "evidence/v02/ps51-sandbox-results.json",
+      "sha256": "1ca37ce1c54314a41384243101c6b45c577998b80086ddaaad73c4cf2dfa9bdc"
+    },
+    {
+      "path": "evidence/v02/ps51-synthetic-loop.json",
+      "sha256": "c6da676faf996658341c1686c746b0e695b4c22cbde755f30c3c002057507552"
+    },
+    {
+      "path": "evidence/v02/ps51-targeted-results.json",
+      "sha256": "4713f2259a9ee96925bae557fbc3e04834e690132db3720079a77329de984ccf"
+    },
+    {
+      "path": "evidence/v02/pwsh-entry-results.json",
+      "sha256": "e605ea6e1253f5bfdc8eaffe2d73f50d1f4bd274c429508f83e672ad8aad4edb"
+    },
+    {
+      "path": "evidence/v02/pwsh-gpt-flow-composed-results.json",
+      "sha256": "4b94f2b124d06933c6bab244a33544099648b0022d64f2cd0fd8f35ed01651e9"
+    },
+    {
+      "path": "evidence/v02/pwsh-gpt-patch-results.json",
+      "sha256": "aeea77d102c4023f78eae144943081470229732379f6a846fb434f0a4bcdfc99"
+    },
+    {
+      "path": "evidence/v02/pwsh-legacy-reused.json",
+      "sha256": "d677223c67eb6511baaabeca84e94a66352b170a8a95b9da97f7d34005a2bad0"
+    },
+    {
+      "path": "evidence/v02/pwsh-review-patch-results.json",
+      "sha256": "e29e856965e39b2677bc2f4ff918db327986a17c772b1aa4decb28115ac65688"
+    },
+    {
+      "path": "evidence/v02/pwsh-revival-loop.json",
+      "sha256": "cc54e5320dfa10baf1e1c0dd47669a6f3ada96d323c80d5a342ebd69581d48a3"
+    },
+    {
+      "path": "evidence/v02/pwsh-sandbox-results.json",
+      "sha256": "0f01ca396199360a51635c8cad4e8279c5a39703a87c94d774feb364cf4ee9fc"
+    },
+    {
+      "path": "evidence/v02/pwsh-synthetic-loop.json",
+      "sha256": "b16a66551497fa543ae4777cdf9e6fd6a7cddd9c0b828f2acc345e5c6e9891b8"
+    },
+    {
+      "path": "evidence/v02/pwsh-targeted-results.json",
+      "sha256": "e48d7012ed56f7387c3e98a3e846bb8970bf0f48f1ea41d6d2f56400874ecdab"
+    },
+    {
+      "path": "evidence/v02/static-results.json",
+      "sha256": "3eea2d4dc5e2638c9675de58c3a7f0e31233e08b3ef1d901d754db6b238d243f"
+    },
+    {
+      "path": "kit/Modules/Backup.ps1",
+      "sha256": "9e2f630c79976b17427395e3af35721d30a5579b3f653b2afb36ef8bec6b7e2b"
+    },
+    {
+      "path": "kit/Modules/Diagnose.ps1",
+      "sha256": "e443b62ea7b73d688e882b5c4d9209674d7791cc387e5dd9bf334955cb6a7ba1"
+    },
+    {
+      "path": "kit/Modules/Quarantine.ps1",
+      "sha256": "cb8933de02f265b396d71f4e1ac991ec583c85f8d2f3f1476413891d9d693710"
+    },
+    {
+      "path": "kit/Modules/Repair.ps1",
+      "sha256": "0465da05629e5b8a73f6d3c8860c24e023dfd66a284c5281c3b050dd5568fb02"
+    },
+    {
+      "path": "kit/Modules/RestoreAssets.ps1",
+      "sha256": "d9aa792b867b24e42022b9c892266794eb43d15a4bd04cb9b69c235004313eea"
+    },
+    {
+      "path": "kit/Modules/SandboxGuide.ps1",
+      "sha256": "12959540a2cd17a3a08d0299b8496faaae499a5743a4d2f11ef57453c925dbeb"
+    },
+    {
+      "path": "kit/Modules/StopWriter.ps1",
+      "sha256": "42bc517134388d2b8cb92a0ceff5e454514295c3c2b634c64b32269b3f549dee"
+    },
+    {
+      "path": "kit/Modules/Verify.ps1",
+      "sha256": "4da23e0ca12d37a5153de0659e5a8bdad32ae2433e75df16a3c0805a2cce49a0"
+    },
+    {
+      "path": "kit/Private/Adapters.ps1",
+      "sha256": "2844450b8fae2e04de8fcff9f96f12c1afd7191d46be4b90a60e37d119da7ab1"
+    },
+    {
+      "path": "kit/Private/Common.ps1",
+      "sha256": "73db7062d7f7e37f5799424841697e87671cf3c8a07d069fb2d5eff801a509c1"
+    },
+    {
+      "path": "kit/ProbeChild.ps1",
+      "sha256": "5a6df7d4f3b0d79fde3f6afb98e95c4282eec976f9442df7e6c2d250725daffe"
+    },
+    {
+      "path": "kit/Rescue.Core.psm1",
+      "sha256": "a39e125c8f10bef30eda1e5e4e4665c622c30c96bb04e5600e86ee20f7053114"
+    },
+    {
+      "path": "kit/Rescue.ps1",
+      "sha256": "3f60b3b23836d5f90661b8280ebc5308eca26ab22bd241bb35dc2cf97ebf10a0"
+    },
+    {
+      "path": "rescue.cmd",
+      "sha256": "28680caf08f8b7e34fd46cf153063260c1a7fff148f33e6235af7ab8baba26b9"
+    },
+    {
+      "path": "skills/codex-rescue/SKILL.md",
+      "sha256": "5af1c6853ef441f6bbefcaf77def670e6d00ef552b3371049c649aa879c996f4"
+    },
+    {
+      "path": "skills/codex-rescue/references/workflow.md",
+      "sha256": "516b76b4f30ca71296a07281d15fdd88601d6b475f247e8e66eae694468cd0c5"
+    },
+    {
+      "path": "tests/EncodingChild.ps1",
+      "sha256": "74f09f508275ee889c0dc6693a32d2e7235fa1745ced6a170cdc78061c8acbab"
+    },
+    {
+      "path": "tests/Preview-Cases.ps1",
+      "sha256": "16ddff71ecd83ebf3c639081bded47a1dc1e35f0549d7bb1c33ca80da7e6167f"
+    },
+    {
+      "path": "tests/Repair-Cases.ps1",
+      "sha256": "350755893bc4c621257b894e4cccc63258c870542a6df10426d18bc68545e931"
+    },
+    {
+      "path": "tests/Repair-Review-Cases.ps1",
+      "sha256": "c0ec17fdec41448dafded89481137c84abf529a1081721fb0b344d07c6da91b9"
+    },
+    {
+      "path": "tests/Review-Cases.ps1",
+      "sha256": "111b8ac9872945337936f2d3d0401fec47eedcb2e106412233f981328ec7d1d3"
+    },
+    {
+      "path": "tests/Run-Tests.ps1",
+      "sha256": "bfc5c1dd80ea8934c429f785aed4625f0a18ea572d5cae2e186bafb79d190f5e"
+    },
+    {
+      "path": "tests/Smoke-Entry.ps1",
+      "sha256": "a951ed90d9e78d9f5f0943217963aa40ad2f6f822a44899ee2e002bee2695b71"
+    },
+    {
+      "path": "tests/Task-State-Cases.ps1",
+      "sha256": "b5e962c93b4f5b220ca0b77196c23e667cb55e47e8394f0ea3c6476ec496ae83"
+    },
+    {
+      "path": "tests/Window-Smoke.ps1",
+      "sha256": "3bbeab0cec6dcbbb15841d9e1cd8b00657b6f1456e297708e1b1b1343d619743"
+    },
+    {
+      "path": "tools/Build-Candidate.ps1",
+      "sha256": "7c6e588829d390b6d10ecd63d11029741fc88c3fe67abb7e210dd829afc64e9b"
+    },
+    {
+      "path": "tools/Invoke-ReviewChecks.ps1",
+      "sha256": "e346108c250fccd1e2c152d81fb24d462e99e3fbd19e2961115ed5755819823f"
+    },
+    {
+      "path": "tools/Test-CandidateEvidence.ps1",
+      "sha256": "e88116f7261636703a0a59bb048ed955cdf55a84da6f79117851908cda8d081d"
+    },
+    {
+      "path": "tools/Test-Source.ps1",
+      "sha256": "079db7232eefade81b9eaaae4b5e707e45dc56a847df5979c64b7152697273d6"
+    }
+  ],
+  "baseline": "11647c8b1380346716353caab2c116eda9728d4f",
+  "beta_base": "b09b171cb9a0f0c07829cfe54a3236d33281098b"
+}

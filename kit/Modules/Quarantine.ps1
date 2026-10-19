@@ -58,6 +58,7 @@ function Get-JournalRecords([string]$Path) {
     foreach($line in [IO.File]::ReadAllLines($p)) {
         if([string]::IsNullOrWhiteSpace($line)){throw 'JOURNAL_CORRUPT'}
         $r=$line | ConvertFrom-Json -ErrorAction Stop
+        if(-not $r.PSObject.Properties['seq'] -or -not $r.PSObject.Properties['prev'] -or -not $r.PSObject.Properties['hash'] -or -not $r.PSObject.Properties['payload']){throw 'JOURNAL_CORRUPT'}
         if($r.seq -ne $seq -or $r.prev -ne $prev -or $r.hash -ne (Get-ShaText ($prev+'|'+[string]$r.payload))) { throw 'JOURNAL_CORRUPT' }
         $records+=($r.payload | ConvertFrom-Json -ErrorAction Stop);$prev=$r.hash;$seq++
     }
@@ -73,9 +74,12 @@ function Add-Journal([string]$Path,$Data) {
     try{$f.Write($bytes,0,$bytes.Length);$f.Flush($true)}finally{$f.Dispose()}
 }
 function Invoke-QuarantinePlan {
-    [CmdletBinding()]param([Parameter(Mandatory)]$Context,[Parameter(Mandatory)][string]$PlanPath,[string]$ApprovePlanHash,[switch]$DryRun,[int]$FixtureInterruptAfter=0,[switch]$FixtureInterruptBeforeApplied)
-    # Public preview: preserve synthetic test transactions, refuse live mutations.
-    if(-not $DryRun -and -not $Context.fixture){return [pscustomobject]@{status='BLOCKED';code='PREVIEW_REAL_MUTATION_DISABLED';exit_code=3}}
+    [CmdletBinding()]param([Parameter(Mandatory)]$Context,[Parameter(Mandatory)][string]$PlanPath,[string]$ApprovePlanHash,[switch]$DryRun,[int]$FixtureInterruptAfter=0,[switch]$FixtureInterruptBeforeApplied,[switch]$PrepareOnly,[switch]$Prepared)
+    # Pre-backup startup changes have their own durable snapshots, scoped to the approved repair.
+    if(-not $DryRun -and (-not $Context.fixture -or $PrepareOnly -or $Prepared)){
+        $cap=Assert-RepairCapability $Context 'Quarantine'
+        if(-not @(Get-RepairStartupPlans $cap|Where-Object {$_.path -ceq $PlanPath -and $_.hash -ceq $ApprovePlanHash}).Count){throw 'REPAIR_QUARANTINE_SCOPE_MISMATCH'}
+    }
     if($DryRun) {
         $p=Read-RescueJson $PlanPath
         return [pscustomobject]@{status='NOT_TESTED';code='DRY_RUN_NO_MUTATIONS';target_count=@($p.targets).Count;approval=(Get-ShaFile $PlanPath)}
@@ -83,18 +87,26 @@ function Invoke-QuarantinePlan {
     if(($FixtureInterruptAfter -gt 0 -or $FixtureInterruptBeforeApplied) -and -not $Context.fixture) { throw 'TEST_HOOK_FIXTURE_ONLY' }
     $plan=Read-ValidatedPlan $Context $PlanPath $ApprovePlanHash
     if(@($plan.targets).Count -eq 0) { return [pscustomobject]@{status='N/A';code='NO_CONFIRMED_ENABLED_TARGETS';exit_code=0} }
-    if(@(Get-ActiveWriters $Context $plan.writer).Count -gt 0) { return [pscustomobject]@{status='BLOCKED';code='ACTIVE_WRITER_STOP_MANUALLY_MEMORY_NOT_REVERSIBLE';exit_code=3} }
+    if(-not ($PrepareOnly -or $Prepared) -and @(Get-ActiveWriters $Context $plan.writer).Count -gt 0) { return [pscustomobject]@{status='BLOCKED';code='ACTIVE_WRITER_STOP_MANUALLY_MEMORY_NOT_REVERSIBLE';exit_code=3} }
     $run=Join-Path $Context.output ('transaction-'+$plan.id)
-    if(Test-Path -LiteralPath $run) { throw 'TRANSACTION_ALREADY_EXISTS_USE_UNDO' }
-    [IO.Directory]::CreateDirectory($run) | Out-Null
+    if($Prepared){
+        $h=Get-JournalRecords (Join-Path $run 'journal.jsonl')
+        if($h.count -ne 1 -or $h.records[0].event -ne 'BEGIN' -or $h.records[0].approved_plan_hash -ne $ApprovePlanHash -or $h.records[0].context -ne $Context.fingerprint -or (Get-ShaFile (Join-Path $run 'undo.json')) -ne $h.records[0].plan_hash){throw 'PREPARED_TRANSACTION_INVALID'}
+    }else{
+        if(Test-Path -LiteralPath $run){throw 'TRANSACTION_ALREADY_EXISTS_USE_UNDO'}
+        $null=New-PrivateDirectory $Context $run
+    }
     $lockPath=Join-Path $Context.output 'mutation.lock'
     $lock=[IO.FileStream]::new($lockPath,[IO.FileMode]::OpenOrCreate,[IO.FileAccess]::ReadWrite,[IO.FileShare]::None)
     $journal=Join-Path $run 'journal.jsonl'
     try {
         # Plan/undo snapshot durably exists before the first mutation.
-        Write-DurableJson (Join-Path $run 'undo.json') $plan
-        $undoHash=Get-ShaFile (Join-Path $run 'undo.json')
-        Add-Journal $journal @{event='BEGIN';plan_hash=$undoHash;approved_plan_hash=$ApprovePlanHash;context=$Context.fingerprint;at=[DateTime]::UtcNow.ToString('o')}
+        if(-not $Prepared){
+            Write-DurableJson (Join-Path $run 'undo.json') $plan
+            $undoHash=Get-ShaFile (Join-Path $run 'undo.json')
+            Add-Journal $journal @{event='BEGIN';plan_hash=$undoHash;approved_plan_hash=$ApprovePlanHash;context=$Context.fingerprint;at=[DateTime]::UtcNow.ToString('o')}
+        }
+        if($PrepareOnly){return [pscustomobject]@{status='PASS';transaction=$run;exit_code=0}}
         $index=0
         foreach($target in $plan.targets) {
             $before=Get-TargetState $Context $target
@@ -120,8 +132,8 @@ function Invoke-QuarantinePlan {
 }
 function Undo-Quarantine {
     [CmdletBinding()]param([Parameter(Mandatory)]$Context,[Parameter(Mandatory)][string]$Transaction,[switch]$ApproveUndo,[switch]$DryRun)
-    # Public preview: never restore system startup entries from this build.
-    if(-not $DryRun -and -not $Context.fixture){return [pscustomobject]@{status='BLOCKED';code='PREVIEW_REAL_MUTATION_DISABLED';exit_code=3}}
+    # v0.2: live Undo is reachable only through the exact approved repair session.
+    if(-not $DryRun -and -not $Context.fixture){$cap=Assert-RepairCapability $Context 'Undo';if(-not @(Get-RepairStartupPlans $cap|Where-Object {$Transaction -ceq (Join-Path $Context.output ('transaction-'+$_.id))}).Count){throw 'REPAIR_UNDO_SCOPE_MISMATCH'}}
     Assert-Context $Context -Mutation
     $run=Assert-PlainPath $Transaction -MustExist
     if((Split-Path -Parent $run) -ine $Context.output -or (Split-Path -Leaf $run) -notmatch '^transaction-[a-f0-9]{32}$') { throw 'TRANSACTION_SCOPE_REFUSED' }
@@ -167,4 +179,31 @@ function Undo-Quarantine {
     }
     $exit=Get-RescueExitCode $checks
     return [pscustomobject]@{status=$(if($exit -eq 0){'PASS'}elseif($exit -eq 3){'NOT_TESTED'}else{'FAIL'});code='UNDO_ITEM_RESULTS_ONLY_NO_PROCESS_RESTART';checks=@($checks);exit_code=$exit}
+}
+function Assert-QuarantineUndoReady($Context,[string]$Transaction,$ApprovedPlan,[string]$ApprovedHash) {
+    $run=Assert-PlainPath $Transaction -MustExist
+    if((Split-Path -Parent $run) -ine $Context.output -or (Split-Path -Leaf $run) -cne ('transaction-'+$ApprovedPlan.id)){throw 'TRANSACTION_SCOPE_REFUSED'}
+    Assert-PrivateDirectory $Context $run
+    $h=Get-JournalRecords (Join-Path $run 'journal.jsonl')
+    $u=Join-Path $run 'undo.json'
+    if($h.count -lt 1 -or $h.records[0].event -ne 'BEGIN' -or $h.records[0].context -ne $Context.fingerprint -or $h.records[0].approved_plan_hash -ne $ApprovedHash -or (Get-ShaFile $u) -ne $h.records[0].plan_hash){throw 'STARTUP_TRANSACTION_BINDING_INVALID'}
+    $snapshot=Read-RescueJson $u
+    if((Get-StateHash $snapshot) -ne (Get-StateHash $ApprovedPlan)){throw 'UNDO_MATERIAL_CORRUPT'}
+    Assert-UndoWriter $Context $snapshot
+    $pending=@($h.records|Where-Object event -eq 'PENDING');$seen=@{}
+    foreach($entry in $pending){
+        $i=[int]$entry.index
+        if($i -lt 0 -or $i -ge @($snapshot.targets).Count -or $seen.ContainsKey($i)){throw 'JOURNAL_INDEX_INVALID'}
+        $seen[$i]=$true;$t=$snapshot.targets[$i];$desired=Get-DesiredState $t.before
+        if($entry.before_hash -ne $t.before_hash -or $entry.after_hash -ne (Get-StateHash $desired)){throw 'JOURNAL_STATE_INVALID'}
+    }
+    for($i=0;$i -lt @($snapshot.targets).Count;$i++){
+        $t=$snapshot.targets[$i];$actual=Get-StateHash (Get-TargetState $Context $t)
+        if($actual -eq $t.before_hash){continue}
+        if(-not $seen.ContainsKey($i) -or $actual -ne (Get-StateHash (Get-DesiredState $t.before))){throw 'STARTUP_UNDO_CONFLICT'}
+        if($t.kind -eq 'startup'){
+            $held=Assert-PlainPath (Join-Path $run ('held-'+$i+'.lnk')) -MustExist
+            if((Get-ShaFile $held) -ne $t.before.definition){throw 'HELD_COPY_CHANGED_OR_MISSING'}
+        }
+    }
 }

@@ -1,0 +1,68 @@
+{
+  "schema": "rescue-composed-test-evidence-v1",
+  "synthetic_only": true,
+  "execution_scope": "COMPOSED_TARGETED_COVERAGE_NOT_SINGLE_FINAL_TREE_RUN",
+  "passed": 7,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "patch F11 multi writer startup rollback without a Home backup",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "BACKUP_SPACE_INSUFFICIENT"
+      ]
+    },
+    {
+      "name": "patch F12 missing or corrupt startup material blocks before file Undo",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "patch F12 startup conflict preflight and repeated Undo",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "STARTUP_UNDO_CONFLICT"
+      ]
+    },
+    {
+      "name": "patch scope projects blocked and unknown startup sources unverified",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "PROJECT_BACKUP_NOT_VERIFIED_PLAN_BLOCKED"
+      ]
+    },
+    {
+      "name": "patch F11 native reviver reproduces takeover and completes synthetic recovery",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "patch approved execution order and stopped configuration binding cannot be bypassed",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "EXECUTION_ORDER_CHANGED_REPLAN_REQUIRED",
+        "STOPPED_CONFIGURATION_BINDING_INVALID",
+        "STOPPED_CONFIGURATION_BINDING_INVALID"
+      ]
+    },
+    {
+      "name": "patch retry startup-only partial Undo never requires an uncreated configuration snapshot",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    }
+  ],
+  "sources": [
+    {
+      "directory": "ps51-patch-final",
+      "sha256": "2663b4ec069e5a24ad9f650522e269cfa40db97ba2d0476df59052e9125d38dd"
+    }
+  ],
+  "limit": "Only startup-only retry changed after initial PS7 six-case run; verified by its own targeted final run."
+}

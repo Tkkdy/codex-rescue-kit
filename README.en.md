@@ -1,19 +1,13 @@
-# Codex Rescue Kit — v0.1.0-preview.1
+# Codex Rescue Kit v0.2.0-beta
 
-**Public source preview, not a production recovery release.** Independent Windows Codex diagnostic kit and optional Skill; not affiliated with or endorsed by OpenAI.
+**Experimental Beta / GitHub Pre-release, not production-stable. Real Windows Task/Run/Startup mutations, official GUI/OAuth/model/tool operation and reboot acceptance remain NOT_TESTED.**
 
-## Start with diagnostics only
+Diagnose is the default. Explicitly choosing repair, reviewing the private plan and approving its exact hash enables executable verified Home backups, confirmed startup quarantine, exact process shutdown, conflict configuration isolation, selected Skills restore, manual official login, Resume/Verify and Undo. No permanent diagnostic-only lock has been added. Forced process termination needs individual additional approval.
 
-Unzip the trusted source archive to a local directory and double-click `rescue.cmd`, or run `./rescue.cmd` from an ordinary PowerShell session. Default `Diagnose` does not modify Codex config, authentication, skills, tasks, or registry, but does create diagnostic report files outside your Codex home.
+Download the source ZIP and SHA-256 at [the Beta release](https://github.com/Tkkdy/codex-rescue-kit/releases/tag/v0.2.0-beta). See [Chinese operations](docs/REAL-REPAIR-v02.md), [release risks](docs/BETA-RELEASE-NOTES.md), [validation](docs/REAL-REPAIR-VALIDATION.md), [review](docs/REAL-REPAIR-REVIEW.md) and [SECURITY](SECURITY.md). Windows 11 x64, fixed local NTFS and a separate ordinary PowerShell are required. Do not operate from the active target Codex tool process or bypass execution policy.
 
-This preview **blocks real Windows `Quarantine` and `Undo`**, returning `PREVIEW_REAL_MUTATION_DISABLED`. Synthetic fixture tests remain available. Do not circumvent the gate for production use.
+Incomplete backups, unknown ownership, drift, unsupported cross-volume placement and missing Undo materials stop safely. Home/Output must share a volume. External projects are inventory-only: selected ProjectRoots without verified backup support block execution. Unidentified complex startup commands remain unanalysed. Never treat preservation or hashes as proof of backup or GUI readability.
 
-The verification framework may write explicit test canaries in user-selected controlled locations; A/B/C origin evidence and Sandbox behaviors have not been verified on live systems. It is not a Codex repair certification. CheckBackup checks listed hashes, not restore viability.
+History DB/provider values and project repositories are not rewritten. New official config/auth blocks Undo overwrite; process memory, manual login and Store operations are not reversible. Old conversations may remain readable but unable to continue; new official conversations are the recovery target.
 
-Baseline: `e7ce4f5bf7ce75a2039b7036cc5c1a9356ad24af`; previous code review passed, but live Windows API testing remains incomplete. Its 62+8 per-engine synthetic/targeted test records do **not** certify this new preview gate modification. See [Preview policy](docs/PREVIEW-PUBLICATION.md), [Security](docs/SECURITY.md), [Operations](docs/OPERATIONS.md) and [LICENSE](LICENSE).
-
-No customer backups, credentials, chat logs, telemetry, installers, or private Git history are included. Reports may contain sensitive metadata: review them before sharing. Copyright (c) 2026 Tkkdy. MIT covers only original implementation the rights holder is entitled to license; restricted third-party and private incident materials are excluded. Maintainer: [Tkkdy](https://github.com/Tkkdy); ordinary reports: [Issues](https://github.com/Tkkdy/codex-rescue-kit/issues); vulnerabilities: [private reporting](https://github.com/Tkkdy/codex-rescue-kit/security/advisories/new). See [SECURITY.md](SECURITY.md). No personal email is published.
-
-## Preview validation
-
-Windows PowerShell 5.1.26100.9711 and PowerShell 7.6.5 each passed 73 synthetic cases, including four preview-specific gate cases. All four live entry refusal commands returned BLOCKED / PREVIEW_REAL_MUTATION_DISABLED / exit 3 in a non-elevated session. Static checks, synthetic default Diagnose entry and Skill structure validation passed. This does not certify live adapters, GUI/tool origins, sandbox boundaries or complete active Codex data-tree immutability. See [validation scope](docs/PREVIEW-VALIDATION.md) and the fresh records under `evidence/preview1/`. The rights holder, maintainer and target Tkkdy/codex-rescue-kit are confirmed. The Public repository and Private Vulnerability Reporting enablement have been verified. This is the prepublication candidate source; see the actual GitHub Pre-release for publication status.
+Based on reviewed b09b171. Synthetic evidence and independent patch review are not live Windows acceptance. Existing v0.1.0-preview.1 is preserved. MIT, Copyright (c) 2026 Tkkdy; no customer scripts, private sessions, credentials or backups are redistributed. Unaffiliated with OpenAI.

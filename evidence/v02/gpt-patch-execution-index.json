@@ -1,0 +1,125 @@
+{
+  "schema": "rescue-patch-execution-index-v1",
+  "baseline": "11647c8b1380346716353caab2c116eda9728d4f",
+  "runs": [
+    {
+      "directory": "ps51-entry-fix-final",
+      "sha256": "8e007ce3ac89faf7c8c0aed7b45158b818165e211c71d0d241595ef808bde60d",
+      "passed": 1,
+      "failed": 0,
+      "case_filter": "v02 entry*",
+      "ps_version": "5.1.26100.9711",
+      "process_exit_code_observed": 0,
+      "exit_note": "Observed tool completion exit 0"
+    },
+    {
+      "directory": "ps51-flow-final",
+      "sha256": "0906bfa687f435aa792421ea6120301f80d70cfce107aa0d1bc6aeb80eaac9bf",
+      "passed": 24,
+      "failed": 1,
+      "case_filter": "v02*",
+      "ps_version": "5.1.26100.9711",
+      "process_exit_code_observed": 1,
+      "exit_note": "PS5.1 failed-test script exits 2 internally; direct native exec host reported 1"
+    },
+    {
+      "directory": "ps51-patch-final",
+      "sha256": "2663b4ec069e5a24ad9f650522e269cfa40db97ba2d0476df59052e9125d38dd",
+      "passed": 7,
+      "failed": 0,
+      "case_filter": "patch*",
+      "ps_version": "5.1.26100.9711",
+      "process_exit_code_observed": 0,
+      "exit_note": "Observed tool completion exit 0"
+    },
+    {
+      "directory": "ps51-patch1",
+      "sha256": "31d23b6413470e353be9dcb8591610101cb3058c50d000b228a6c48bcfc17560",
+      "passed": 5,
+      "failed": 0,
+      "case_filter": "patch*",
+      "ps_version": "5.1.26100.9711",
+      "process_exit_code_observed": 0,
+      "exit_note": "Observed tool completion exit 0"
+    },
+    {
+      "directory": "ps51-scope-final",
+      "sha256": "03deb776f3922dbeace39b1cbd30810834154786762f50ca857de78d106ecdc8",
+      "passed": 1,
+      "failed": 0,
+      "case_filter": "patch scope*",
+      "ps_version": "5.1.26100.9711",
+      "process_exit_code_observed": 0,
+      "exit_note": "Observed tool completion exit 0"
+    },
+    {
+      "directory": "pwsh-entry-final",
+      "sha256": "e605ea6e1253f5bfdc8eaffe2d73f50d1f4bd274c429508f83e672ad8aad4edb",
+      "passed": 1,
+      "failed": 0,
+      "case_filter": "v02 entry*",
+      "ps_version": "7.6.5",
+      "process_exit_code_observed": 0,
+      "exit_note": "Observed tool completion exit 0"
+    },
+    {
+      "directory": "pwsh-flow-final",
+      "sha256": "4e3182d3d5b7ee4fc05d3add4fa2fe9885f581c3f495517fa7b2cf1984012965",
+      "passed": 25,
+      "failed": 0,
+      "case_filter": "v02*",
+      "ps_version": "7.6.5",
+      "process_exit_code_observed": 0,
+      "exit_note": "Observed tool completion exit 0"
+    },
+    {
+      "directory": "pwsh-patch-final",
+      "sha256": "0fa6968e232435da32c2a587f237f4dee6bfc208e3cef302655e946614975e77",
+      "passed": 6,
+      "failed": 0,
+      "case_filter": "patch*",
+      "ps_version": "7.6.5",
+      "process_exit_code_observed": 0,
+      "exit_note": "Observed tool completion exit 0"
+    },
+    {
+      "directory": "pwsh-patch1",
+      "sha256": "2b49a165fb868ba56293fd028b435fe71bd94ce6b19f62480bd5b6a9fc57b0d7",
+      "passed": 5,
+      "failed": 0,
+      "case_filter": "patch*",
+      "ps_version": "7.6.5",
+      "process_exit_code_observed": 0,
+      "exit_note": "Observed tool completion exit 0"
+    },
+    {
+      "directory": "pwsh-scope-final",
+      "sha256": "af3f472e3cade548e6d361bcee008b778cd977e554e129eddb248af03ce478de",
+      "passed": 1,
+      "failed": 0,
+      "case_filter": "patch scope*",
+      "ps_version": "7.6.5",
+      "process_exit_code_observed": 0,
+      "exit_note": "Observed tool completion exit 0"
+    },
+    {
+      "directory": "pwsh-undo-retry-final",
+      "sha256": "dcb773b508baef64aac4258e88417bf74d7e8dce22a6a38c97a95628e126d7c6",
+      "passed": 1,
+      "failed": 0,
+      "case_filter": "patch retry*",
+      "ps_version": "7.6.5",
+      "process_exit_code_observed": 0,
+      "exit_note": "Observed tool completion exit 0"
+    }
+  ],
+  "statement": "Recorded from actual tool completions/results; console stdout was delivered via tool output, not saved as a raw stdout file. Raw fixtures retained separately; no manufactured stdout. Failed run preserved.",
+  "not_tested": [
+    "real Windows Task/Run/Startup writes",
+    "GUI/OAuth/new-model",
+    "original-project real tool B",
+    "real reboot",
+    "cross-volume backup",
+    "external-project backup"
+  ]
+}

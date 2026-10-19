@@ -1,0 +1,58 @@
+{
+  "schema": "rescue-beta-publication-checks-v1",
+  "version": "v0.2.0-beta",
+  "base_commit": "b09b171cb9a0f0c07829cfe54a3236d33281098b",
+  "changes": "Release docs, confirmation warnings and metadata only; no repair behavior or safety gates removed",
+  "tests": [
+    {
+      "label": "pwsh-beta",
+      "passed": 2,
+      "failed": 0,
+      "ps_version": "7.6.5",
+      "case_filter": "Beta*",
+      "original_results_sha256": "0b1e7cd2b44410d59860be7bbd364cbc2d6536a11af7ae39204379b6008fa4ce",
+      "exit_code_observed": 0
+    },
+    {
+      "label": "ps51-beta",
+      "passed": 2,
+      "failed": 0,
+      "ps_version": "5.1.26100.9711",
+      "case_filter": "Beta*",
+      "original_results_sha256": "de24502b908d44cd0c469ddc56a0cc1d7bed21cb88430aab730a94d3a955dde1",
+      "exit_code_observed": 0
+    },
+    {
+      "label": "pwsh-entry",
+      "passed": 1,
+      "failed": 0,
+      "ps_version": "7.6.5",
+      "case_filter": "v02 entry*",
+      "original_results_sha256": "e605ea6e1253f5bfdc8eaffe2d73f50d1f4bd274c429508f83e672ad8aad4edb",
+      "exit_code_observed": 0
+    },
+    {
+      "label": "ps51-entry",
+      "passed": 1,
+      "failed": 0,
+      "ps_version": "5.1.26100.9711",
+      "case_filter": "v02 entry*",
+      "original_results_sha256": "8e007ce3ac89faf7c8c0aed7b45158b818165e211c71d0d241595ef808bde60d",
+      "exit_code_observed": 0
+    }
+  ],
+  "inherited_evidence": "b09 independent patch PASS; composed two-engine 7 new + 25 affected cases and scoped old69 reuse, not rerun",
+  "privacy": "No plausible credential, private-user path, user SID or private-key patterns found in whitelisted export; no raw private fixture/backup data exported",
+  "copyright": "MIT Copyright (c) 2026 Tkkdy, user-confirmed rights to original implementation; no new dependencies, vendored third-party code, binaries or customer scripts",
+  "operational_scope": "Synthetic fixtures only, no current Codex repair or host startup/ACL/auth changes",
+  "not_tested": [
+    "real Windows Task/Run/Startup mutation acceptance",
+    "GUI/OAuth/new official model",
+    "original-project real terminal tool",
+    "real reboot",
+    "cross-volume backup unsupported",
+    "external project backup unsupported"
+  ],
+  "publication_authorization": "User explicitly approved Experimental Beta Pre-release, without full VM matrix prerequisite; actual data-loss blocker would stop publication",
+  "package": "Committed file allowlist only, no .git/raw fixtures/private data. Final commit/archive hashes stored in external release assets."
+}

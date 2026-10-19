@@ -1,0 +1,208 @@
+{
+  "schema": "rescue-composed-test-evidence-v1",
+  "synthetic_only": true,
+  "execution_scope": "COMPOSED_TARGETED_COVERAGE_NOT_SINGLE_FINAL_TREE_RUN",
+  "passed": 25,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "v02 exact approval and legal provider consent preserve rejected fixtures",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "EXPLICIT_REPAIR_HASH_APPROVAL_REQUIRED",
+        "EXPLICIT_CONFIGURATION_CONFLICT_CONFIRMATION_REQUIRED"
+      ]
+    },
+    {
+      "name": "v02 plan redacts auth and configuration secret values",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "v02 scope excludes Skills and DB from configuration isolation",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "CONFIGURATION_SCOPE_REFUSED"
+      ]
+    },
+    {
+      "name": "v02 backup isolation and Undo execute real file changes and preserve all unapproved assets",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "v02 new official login prevents Undo overwrite and startup reenable",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "UNDO_NEW_CONFIGURATION_CONFLICT"
+      ]
+    },
+    {
+      "name": "v02 file interruption after mutation resumes and Undo restores bytes",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "SYNTHETIC_FILE_INTERRUPTION"
+      ]
+    },
+    {
+      "name": "v02 backup interruption retains partial copy and Resume creates fresh verified snapshot",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "BACKUP_INTERRUPTED"
+      ]
+    },
+    {
+      "name": "v02 disk full retains startup Undo and refuses configuration changes",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "BACKUP_SPACE_INSUFFICIENT"
+      ]
+    },
+    {
+      "name": "v02 corrupt manifest blocks Resume and Undo without file changes",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "BACKUP_MANIFEST_DRIFT",
+        "BACKUP_MANIFEST_DRIFT"
+      ]
+    },
+    {
+      "name": "v02 copied payload corruption blocks configuration isolation",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "BACKUP_CONTENT_INVALID"
+      ]
+    },
+    {
+      "name": "v02 writer and configuration drift stop execution",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "WRITER_DRIFT",
+        "CONFIGURATION_NOT_IN_BACKUP"
+      ]
+    },
+    {
+      "name": "v02 live direct module calls require versioned capability",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "VERSIONED_REPAIR_CAPABILITY_REQUIRED",
+        "VERSIONED_REPAIR_CAPABILITY_REQUIRED"
+      ]
+    },
+    {
+      "name": "v02 PID reuse and extra force approval prevent unrelated termination",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "FORCE_PROCESS_APPROVAL_REQUIRED:fe4b6f68ebac02b8c82a252ab616a52261e060adc14cbb19fd57c08b3163f823",
+        "PROCESS_IDENTITY_DRIFT"
+      ]
+    },
+    {
+      "name": "v02 Skills restored by selected file only and Undo preserves unrelated assets",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "v02 unreviewed Skills source remains blocked",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "ASSET_SOURCE_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "name": "v02 Sandbox unsupported backend and precise rule stay read-only",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "v02 native fictional daemon stop backup isolation Resume 60s and Undo",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "v02 project evidence covers explicit external scope without modifying Git or files",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "PROJECT_BACKUP_NOT_VERIFIED_PLAN_BLOCKED"
+      ]
+    },
+    {
+      "name": "v02 damaged Journal rejects Resume and preserves user assets",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "JOURNAL_CORRUPT"
+      ]
+    },
+    {
+      "name": "v02 backup with source changed during copy refuses consistency claim",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "v02 private backup directory ACL is created only on new synthetic target",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "v02 repair DryRun is strictly mutation free even with exact approval",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "v02 entry live gate precedes module IO and approved Repair Undo DryRun change nothing",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "v02 review expired forward blocks but original Undo remains available with conflicts protected",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "v02 review Sandbox existing output ACL is enforced without changing existing permissions",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "PRIVATE_OUTPUT_ACL_REQUIRED_USE_NEW_OUTPUT"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "directory": "pwsh-flow-final",
+      "sha256": "4e3182d3d5b7ee4fc05d3add4fa2fe9885f581c3f495517fa7b2cf1984012965",
+      "original_passed": 25,
+      "original_failed": 0
+    },
+    {
+      "directory": "pwsh-entry-final",
+      "sha256": "e605ea6e1253f5bfdc8eaffe2d73f50d1f4bd274c429508f83e672ad8aad4edb"
+    }
+  ],
+  "known_failed_run_retained": false,
+  "limit": "PS5.1 original 24/25 retains CLI parsing failure; UTF-8 BOM fixed then entry only retested. Unaffected 24 reused."
+}

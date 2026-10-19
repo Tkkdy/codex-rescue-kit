@@ -381,7 +381,8 @@ Case 'UTC conversion preserves string and parsed JSON timestamps' {
 }
 . (Join-Path $PSScriptRoot 'Review-Cases.ps1')
 . (Join-Path $PSScriptRoot 'Task-State-Cases.ps1')
-. (Join-Path $PSScriptRoot 'Preview-Cases.ps1')
+. (Join-Path $PSScriptRoot 'Repair-Cases.ps1')
+. (Join-Path $PSScriptRoot 'Repair-Review-Cases.ps1')
 $summary=[ordered]@{schema='rescue-test-results-v1';case_filter=$CaseFilter;execution_scope=$(if($CaseFilter -eq '*'){'FULL_SUITE'}else{'TARGETED_ONLY_NOT_FULL_REGRESSION'});synthetic_only=$true;ps_version=$PSVersionTable.PSVersion.ToString();os=[Environment]::OSVersion.Version.ToString();passed=@($script:results|Where-Object status -eq 'PASS').Count;failed=@($script:results|Where-Object status -eq 'FAIL').Count;cases=@($script:results.ToArray());limitations=@('Windows task/registry mutation adapters not exercised on this host','GUI login UAC and real Codex sandbox boundary acceptance require disposable environment','Fault injection is synthetic, not an OS-level outage')}
 Json (Join-Path $ResultDirectory 'results.json') $summary
 Write-Host ('RESULT '+$summary.passed+' passed, '+$summary.failed+' failed')

@@ -14,14 +14,14 @@ $commit=(& $GitExecutable -C $repo rev-parse HEAD).Trim();if($LASTEXITCODE -ne 0
 $files=@(& $GitExecutable -C $repo -c core.quotepath=false ls-files);if($LASTEXITCODE -ne 0){throw 'GIT_FAILED'}
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
-$zip=Join-Path $destinationPath ('codex-rescue-kit-v0.1-'+$commit.Substring(0,12)+'-review.zip')
+$zip=Join-Path $destinationPath ('codex-rescue-kit-v0.2-'+$commit.Substring(0,12)+'-candidate.zip')
 if(Test-Path -LiteralPath $zip){throw 'CANDIDATE_ALREADY_EXISTS'}
 $archive=[IO.Compression.ZipFile]::Open($zip,[IO.Compression.ZipArchiveMode]::Create)
 $manifest=@()
 try{
     foreach($relative in $files){
         # Packaging is an allowlist over committed source, not a recursive archive of the workspace.
-        if($relative -notmatch '^(kit/|tests/|tools/|skills/|docs/|evidence/|README\.md$|README\.en\.md$|LICENSE$|THIRD_PARTY_NOTICES\.md$|rescue\.cmd$|\.gitignore$|\.gitattributes$)' -or $relative -match '(^|/)(out|artifacts|\.test-runs|\.git)(/|$)|\.\.|:|^/'){throw 'PACKAGE_PATH_REFUSED'}
+        if($relative -notmatch '^(kit/|tests/|tools/|skills/|docs/|evidence/|README\.md$|README\.en\.md$|PREVIEW-RELEASE-NOTES\.md$|SECURITY\.md$|\.ai/handoff\.md$|LICENSE$|THIRD_PARTY_NOTICES\.md$|rescue\.cmd$|\.gitignore$|\.gitattributes$)' -or $relative -match '(^|/)(out|artifacts|\.test-runs|\.git)(/|$)|\.\.|:|^/'){throw 'PACKAGE_PATH_REFUSED'}
         $p=Join-Path $repo $relative
         $cursor=$p;while($cursor.Length -ge $repo.Length){if((Get-Item -LiteralPath $cursor -Force).Attributes -band [IO.FileAttributes]::ReparsePoint){throw 'REPARSE_REFUSED'};$cursor=Split-Path -Parent $cursor;if(-not $cursor){break}}
         $hash=(Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -42,6 +42,6 @@ try{
 }finally{$read.Dispose()}
 $zipHash=(Get-FileHash -LiteralPath $zip -Algorithm SHA256).Hash.ToLowerInvariant()
 [IO.File]::WriteAllText(($zip+'.sha256'),($zipHash+'  '+[IO.Path]::GetFileName($zip)+[Environment]::NewLine),[Text.UTF8Encoding]::new($false))
-$record=[ordered]@{schema='rescue-candidate-v1';state='V0.1_REVIEW_READY';commit=$commit;created_at=[DateTime]::UtcNow.ToString('o');archive=[IO.Path]::GetFileName($zip);sha256=$zipHash;files=@($manifest);public_release=$false}
+$record=[ordered]@{schema='rescue-candidate-v1';state='REAL_REPAIR_REVIEW_READY';commit=$commit;created_at=[DateTime]::UtcNow.ToString('o');archive=[IO.Path]::GetFileName($zip);sha256=$zipHash;files=@($manifest);public_release=$false}
 [IO.File]::WriteAllText(($zip+'.manifest.json'),($record|ConvertTo-Json -Depth 8),[Text.UTF8Encoding]::new($false))
 [pscustomobject]@{commit=$commit;archive=$zip;sha256=$zipHash;files=$manifest.Count}|ConvertTo-Json

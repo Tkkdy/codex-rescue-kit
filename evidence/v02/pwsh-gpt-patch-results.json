@@ -1,0 +1,72 @@
+{
+  "schema": "rescue-composed-test-evidence-v1",
+  "synthetic_only": true,
+  "execution_scope": "COMPOSED_TARGETED_COVERAGE_NOT_SINGLE_FINAL_TREE_RUN",
+  "passed": 7,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "patch F11 multi writer startup rollback without a Home backup",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "BACKUP_SPACE_INSUFFICIENT"
+      ]
+    },
+    {
+      "name": "patch F12 missing or corrupt startup material blocks before file Undo",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "patch F12 startup conflict preflight and repeated Undo",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "STARTUP_UNDO_CONFLICT"
+      ]
+    },
+    {
+      "name": "patch scope projects blocked and unknown startup sources unverified",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "PROJECT_BACKUP_NOT_VERIFIED_PLAN_BLOCKED"
+      ]
+    },
+    {
+      "name": "patch F11 native reviver reproduces takeover and completes synthetic recovery",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    },
+    {
+      "name": "patch approved execution order and stopped configuration binding cannot be bypassed",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": [
+        "EXECUTION_ORDER_CHANGED_REPLAN_REQUIRED",
+        "STOPPED_CONFIGURATION_BINDING_INVALID",
+        "STOPPED_CONFIGURATION_BINDING_INVALID"
+      ]
+    },
+    {
+      "name": "patch retry startup-only partial Undo never requires an uncreated configuration snapshot",
+      "status": "PASS",
+      "error": null,
+      "expected_refusals": []
+    }
+  ],
+  "sources": [
+    {
+      "directory": "pwsh-patch-final",
+      "sha256": "0fa6968e232435da32c2a587f237f4dee6bfc208e3cef302655e946614975e77"
+    },
+    {
+      "directory": "pwsh-undo-retry-final",
+      "sha256": "dcb773b508baef64aac4258e88417bf74d7e8dce22a6a38c97a95628e126d7c6"
+    }
+  ],
+  "limit": "Only startup-only retry changed after initial PS7 six-case run; verified by its own targeted final run."
+}

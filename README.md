@@ -1,53 +1,39 @@
-# Codex Rescue Kit — v0.1.0-preview.1
+# Codex Rescue Kit v0.2.0-beta
 
-**公开源码预览版 / Public source preview. 非正式修复发行版。**
+**Experimental / Beta — GitHub Pre-release，非生产级稳定工具。真实 Windows Task Scheduler、HKCU Run、Startup COM 写入，以及官方 GUI/OAuth/模型/工具和真实重启验收仍为 NOT_TESTED。错误归属、进程强停或不完整备份可能损害使用状态；请先读完整计划与下列限制。**
 
-一个面向 Windows Codex 的独立诊断工具，包含 PowerShell Kit、`codex-rescue` Skill、合成测试与可审计的事务恢复原型。
-本项目源自真实故障救援经验，但**不保证能修好任何具体 Codex 故障**，也不是 OpenAI 官方产品。
+默认 `rescue.cmd` 只运行 Diagnose。显式选择并批准修复计划后，本 Beta 可以执行完整 Home 校验备份、确证启动入口禁用、精确进程停写、冲突配置隔离、逐项 Skills 恢复、官方登录人工引导、Resume/Verify 和安全 Undo，不是只输出报告的诊断器。保留 [v0.1.0-preview.1](https://github.com/Tkkdy/codex-rescue-kit/releases/tag/v0.1.0-preview.1)。
 
-## 最简单的使用方法
+## 下载与使用
 
-1. 从可信来源取得完整源码 ZIP，解压到你自己的 Windows 本地目录（例如 `C:\RescueKit`）。
-2. 在解压目录双击 `rescue.cmd`。默认仅执行 Diagnose；不修改 Codex 配置、认证、Skills、任务或注册表。
-3. 查看新建的报告目录中的 `report.zh-CN.md` 和 `report.json`，**分享前手动审阅隐私元数据**。
-
-也可在普通 PowerShell 内运行：
+从 [v0.2.0-beta Release](https://github.com/Tkkdy/codex-rescue-kit/releases/tag/v0.2.0-beta) 下载 `codex-rescue-kit-v0.2.0-beta-source.zip` 和 `.sha256`，核对 SHA-256 后解压。需要 Windows 11 x64、本地固定 NTFS、普通非管理员独立 PowerShell；不要求安装额外依赖，不绕过执行策略。
 
 ```powershell
+Get-FileHash .\codex-rescue-kit-v0.2.0-beta-source.zip -Algorithm SHA256
 .\rescue.cmd
-# 已知正确 CODEX_HOME 时，指定它与独立的报告目录：
-.\rescue.cmd -Mode Diagnose -CodexHome "C:\Example\.codex" -OutputDirectory "C:\RescueReports\example"
+# 以下命令只创建/展示计划，直到本人审阅影响范围并确认完整批准哈希。
+.\rescue.cmd -Mode Repair -Interactive -Channel C -CodexHome 'C:\RescueTarget\.codex' -OutputDirectory 'C:\RescuePrivate\new-unique-run'
 ```
 
-PowerShell 的执行策略若阻止运行，请遵守本机策略，不建议绕过。建议 Windows 11 x64、本地 NTFS、普通用户环境；尚未完成跨 Windows 真实功能兼容验收。
+示例路径不是对当前电脑的操作授权。请在独立 PowerShell 中对明确目标运行，先关闭目标 Codex。中文向导展示文件/启动项/进程/备份与不可撤销风险；强停需逐进程额外批准。脚本调用也必须先生成私有计划、审阅再给完整哈希。
 
-## Preview 的功能边界
+- [完整使用指南：多 writer、Backup、Resume、Skills 与 Undo](docs/REAL-REPAIR-v02.md)
+- [Beta Release Notes 与已知风险](docs/BETA-RELEASE-NOTES.md)
+- [验证结果与组合证据边界](docs/REAL-REPAIR-VALIDATION.md) · [独立补丁复审](docs/REAL-REPAIR-REVIEW.md)
+- [手工验收与威胁模型](docs/REAL-REPAIR-ACCEPTANCE.md) · [安全报告](SECURITY.md)
 
-| 功能 | 本预览版状态 |
-|---|---|
-| Diagnose | 提供只读目标诊断；会向指定目录写入报告 |
-| Plan / Dry-run | 提供归属分析与模拟预览；不会实际移除 Windows 自启项 |
-| CheckBackup | 校验所提供逐文件哈希清单；不能证明可还原 |
-| Verify / ToolProbe | 实验性证据框架；明确要求用户主动选择受控 canary 路径、外部 B/C 来源核对，不能当作官方功能认证 |
-| **Quarantine 实际隔离** | **真实 Windows 禁用：`PREVIEW_REAL_MUTATION_DISABLED`** |
-| **Undo 实际恢复** | **真实 Windows 禁用：`PREVIEW_REAL_MUTATION_DISABLED`** |
-| 合成 Fixture 测试 | 保留，可在测试目录运行，不是实机兼容证明 |
+## 必须保留的停止条件
 
-系统级隔离/恢复实现仍以可读源码公开，仅供独立审查；**不能在本预览版中直接作为可靠修复功能使用**。除默认 Diagnose 外，不推荐非技术用户运行其他操作。修改源代码绕过保护者自行承担风险。
+- 备份不完整/源变化/校验失败、目标归属不明确、PID漂移、配置冲突或Undo材料不足时停止，不跳过。内存与外部登录/Store操作不可Undo。
+- 当前 Home 与 Output 必须同卷；不支持 C: Home → D: 备份。不能满足空间/同卷条件时停止。
+- Home 外项目只有盘点，无已验证的备份支持；提供外部 `ProjectRoots` 会显示 `PLAN_SCOPE_BLOCKED` 并阻止修复。未提供外部项目也不意味着它们已经备份。
+- 复杂启动命令/wrapper与未确认来源保持“未分析”，不声称所有接管源都已清除。没有证据不按名字/端口批量处理。
+- 不删除/重写历史 SQLite，不批量改旧会话 provider，不覆盖项目/Git/Worktree或同名 Skills；新官方 config/auth 会阻止Undo覆盖。备份含敏感内容，必须私下保存，不上传 Issues。
 
-## 验证情况与缺口
+## 验证意味着什么
 
-基础提交 `e7ce4f5bf7ce75a2039b7036cc5c1a9356ad24af`：开发侧 PowerShell 5.1/7 各 62 个合成基线测试，加各 8 个定向补丁测试；经独立静态/证据复审后结论是 `REVIEW_PASS_RELEASE_BLOCKED`。
-上述历史证据不代表 Preview 新验证。本次 Windows PowerShell 5.1.26100.9711 / PowerShell 7.6.5 各完成 73/73 合成回归，包含 4 项新增门禁用例；各引擎 Quarantine/Undo 的真实入口均返回 BLOCKED / PREVIEW_REAL_MUTATION_DISABLED / exit 3。静态检查、虚构 Home 默认入口与 Skill 结构校验通过。见 [Preview 验证边界](docs/PREVIEW-VALIDATION.md)。
-真实 Task Scheduler、HKCU Run、Startup COM、Journal/Undo 恢复及真实 A/B/C 与 Sandbox 边界仍 **NOT_TESTED**。
+基础为 `b09b171`。独立补丁复审 PASS；两引擎各新增7项、受影响v02流程25项为组合通过证据（PS5.1 CLI曾失败，编码修正后单项复验；原失败保留），旧69项按范围复用。合成双writer复活、备份/隔离/60秒观察/Undo已验证；真实启动API、GUI/本人OAuth/新模型/原项目真实工具/重启仍NOT_TESTED。未要求完整VM矩阵作为本Beta发行门禁，亦不宣称已完成真实救援。
 
-`evidence/` 顶层是基础提交的历史文本捕获；新验证在 `evidence/preview1/`，两者分开关联。完整活跃 Codex 数据目录未作前后不变性验收，不将入口阻断或合成成功称为真实修复成功。
-参见 [预览说明](docs/PREVIEW-PUBLICATION.md)、[安全限制](docs/SECURITY.md)、[已知限制](docs/KNOWN-LIMITATIONS.md) 和 [Skill](skills/codex-rescue/SKILL.md)。
+目标是保全历史与项目并恢复官方新会话使用。旧会话可读但不能续聊属于已知兼容限制，不单独判整体修复失败。最终可用性须由使用者核对真实GUI、模型、工具与重启。
 
-## 开源许可与责任
-
-本项目原创实现采用 [MIT 许可证](LICENSE)，Copyright (c) 2026 Tkkdy；授权仅覆盖权利人有权授权的原创内容。见 [来源与第三方说明](THIRD_PARTY_NOTICES.md)。客户原始脚本、私人配置、备份、凭据和第三方受限代码不进入公开包。
-
-维护者：[Tkkdy](https://github.com/Tkkdy)。普通问题使用 [GitHub Issues](https://github.com/Tkkdy/codex-rescue-kit/issues)，安全漏洞使用 [私密漏洞报告](https://github.com/Tkkdy/codex-rescue-kit/security/advisories/new)，不公开个人邮箱。详见 [SECURITY.md](SECURITY.md)。公开发布前必须确认该私密报告功能已启用。
-
-本包不包含历史救援日志、客户备份、认证材料、真实私人配置或原始 Git bundle。没有联网遥测或自动更新器。使用前阅读安全说明；报告只经过字段白名单过滤，**并不保证绝对没有敏感信息**。
+MIT — Copyright (c) 2026 Tkkdy。仅发布有权授权的原创实现；不包含客户事故脚本、私人会话、凭据或备份。本项目不属于OpenAI，不获其背书或修复保证。

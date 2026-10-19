@@ -1,3 +1,5 @@
+> 历史 V0.1 / Preview 文档。v0.2 当前操作与权限以 [真实修复说明](REAL-REPAIR-v02.md) 和 [收敛验收](REAL-REPAIR-ACCEPTANCE.md) 为准；以下旧证据仅适用于其绑定版本。
+
 # v0.1.0-preview.1 — 公开源码预览说明
 
 ## 目的与安全范围
@@ -24,7 +26,7 @@
 
 ## 发布纪律
 
-1. 权利人已明确确认 MIT Copyright (c) 2026 Tkkdy，授权限其有权授权的项目原创实现；维护者为 Tkkdy，普通 Issues 与私密漏洞报告渠道见根目录 SECURITY.md。无授权原始客户资料一律不公开。发布前确认指定 Public 仓库可访问且私密漏洞报告已启用。
+1. 确认 MIT Copyright 主体与原创权利、项目维护者/安全联系方式；无授权原始客户资料一律不公开。
 2. 不把本预览版标注为 production-ready、verified fix 或 one-click safe repair。
 3. GitHub 仓库可公开代码，但不要公开私人接力包、完整事故审计 ZIP、原始 Git bundle、私密日志或用户配置。
 4. 若将来恢复 Quarantine/Undo 实际功能，必须由独立版本开发、明确标注变更、真实 Windows 适配器测试与专门复审；不能仅删除预览闸门。

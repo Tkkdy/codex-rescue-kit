@@ -1,0 +1,16 @@
+{
+  "repair_phase": "OBSERVED",
+  "first_exit": null,
+  "synthetic": true,
+  "backup_verified": true,
+  "revival_reproduced": true,
+  "protected_assets_unchanged": true,
+  "repair_exit": 3,
+  "reboot": "NOT_TESTED",
+  "GUI": "NOT_TESTED",
+  "writer_exit": null,
+  "stability_seconds": 60,
+  "undo_exit": 0,
+  "reviver_exit": -1,
+  "real_startup_APIs": "NOT_TESTED"
+}
